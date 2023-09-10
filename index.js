@@ -7,36 +7,46 @@
  * Повертає: Масив користувачів.
  */
 function getUsersFromDatabase(array) {
-  let userArray = Array.from(array) // Використовуємо метод `Array.from` для створення масиву користувачів зі списку, елементи якого це об'єкти які міститять
-  for (let item of userArray) {
-    item.name = item.name.toUpperCase() //   id який дорівнює id користувача,firstName який дорівнює firstName користувача в верхньому регістрі та years який дорівнює age користувача
+  //   let userArray = Array.from(array) // Використовуємо метод `Array.from` для створення масиву користувачів зі списку, елементи якого це об'єкти які міститять
+  //   for (let item of userArray) {
+  //     item.name = item.name.toUpperCase() //   id який дорівнює id користувача,firstName який дорівнює firstName користувача в верхньому регістрі та years який дорівнює age користувача
 
-    //перейменування ключів властивостей об'єкту item спосіб 1 (не спрацював):
-    // for (let key in item) {
-    //   if (key === 'name') {
-    //     key = 'firstName'
-    //   }
-    //   if (key === 'age') {
-    //     key = 'years'
-    //   }
-    // }
+  //перейменування ключів властивостей об'єкту item спосіб 1 (не спрацював):
+  // for (let key in item) {
+  //   if (key === 'name') {
+  //     key = 'firstName'
+  //   }
+  //   if (key === 'age') {
+  //     key = 'years'
+  //   }
+  // }
 
-    //перейменування ключів властивостей об'єкту item спосіб 2 (не спрацював):
-    // item = {
-    //   id: item.id,
-    //   firstName: item.name,
-    //   years: item.age,
-    // }
+  //перейменування ключів властивостей об'єкту item спосіб 2 (не спрацював):
+  // item = {
+  //   id: item.id,
+  //   firstName: item.name,
+  //   years: item.age,
+  // }
 
-    // "перейменування"/перестворення ключів властивостей об'єкту item у newItem спосіб 3 (спрацював частково):
-    let newitem = {
+  // "перейменування"/перестворення ключів властивостей об'єкту item у newItem спосіб 3 (спрацював частково):
+  // let newitem = {
+  //   id: item.id,
+  //   firstName: item.name,
+  //   years: item.age,
+  // }
+  // console.log(newitem)
+  //   }
+  //   return userArray // Повертаємо масив користувачів
+
+  // Варіант викладача:
+  const userArray = Array.from(array, (item) => {
+    return {
       id: item.id,
-      firstName: item.name,
+      firstName: item.name.toUpperCase(),
       years: item.age,
     }
-    console.log(newitem)
-  }
-  return userArray // Повертаємо масив користувачів
+  })
+  return userArray
 }
 
 // Приклад використання функції getUsersFromDatabase
