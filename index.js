@@ -418,6 +418,17 @@ function customUnshift(arr, ...elements) {
   } else {
     return `${arr} should be array`
   }
+
+  // Рішення викладача:
+  //   if (!Array.isArray(arr)) {
+  //     return
+  //   }
+  //   const initialLength = arr.length
+  //   for (let i = elements.length - 1; i >= 0; i--) {
+  //     arr.unshift(elements[i])
+  //   }
+  //   const newLength = arr.length
+  //   return { initialLength, newLength, arr }
 }
 
 console.log('Завдання: 14 ==============================')
